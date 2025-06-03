@@ -1,0 +1,1 @@
+# xnft-burn-contract-v2
