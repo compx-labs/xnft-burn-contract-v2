@@ -1,0 +1,1905 @@
+{
+  "version": 3,
+  "sources": [
+    "/Users/kierannelson/Development/xnft-burn-contract-v2/xnft-burn/projects/xnft-burn/smart_contracts/burn_app/burner.algo.ts"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAOA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;AA6CE;;AAAA;AAAA;AAAA;;AAAA;AA7CF;;;AAAA;AAAA;;AAAA;;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AA6CE;;;AAAA;;AAbA;;AAAA;AAAA;AAAA;;AAAA;AAhCF;;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAgCE;;;AAAA;;AAdA;;AAAA;AAAA;AAAA;;AAAA;AAlBF;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;;;AAAA;AAkBE;;;AAAA;;AARA;;AAAA;AAAA;AAAA;;AAAA;AAVF;;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAUE;;;AAAA;;AALA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;;AAJA;AAKmC;;AAAjC;AAJF;AAK4B;AAA1B;;AAGF;;;AACa;;AAVb;AAAA;AAAA;AAAA;AAUS;AAAP;AACA;;AAAA;AATF;AAUE;;AAAA;AAXF;AAY4B;AAA1B;AACA;;AAAA;;AAAA;;;;AAGF;;;AACE;;AAAA;AACW;;AAnBb;AAAA;AAAA;AAAA;AAmBS;AAAP;AACc;;AAAA;;AAvBU;AAuBjB;AAAP;AACA;AAEuB;;;;;;;;;;;;AAFvB;;;AAxBwB;;;AAwBxB;;AAUF;;;AACgB;;AAAA;;AAtCO;;;;AAsCd;AAAP;AAEA;AAI0B;;;;AADT;;;;;;;AAHjB;;;AAKS;;;AALT;;AAUF;;;AACe;;AAAA;;AAAgB;AAAtB;AAAP;AACa;;AAAA;;AAAyB;;AAA/B;AAAP;AACc;;AAAA;;AApDM;AAoDb;AAAP;AAC4B;;AAArB;;AAAA;;AAAA;AApDiB;;AAoDjB;AAAP;AAEA;AAhDF;AAAA;AAAA;AAAA;AAoDyB;;;;AA1DC;;;;;;AAsDxB;;;AAvDoB;;;AAuDpB;AAjDF;AAAA;AAAA;AAAA;AA0DwD;AAA1B;AA1D9B;AA0DI;AAAA;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 0 1000 4 500000"
+    },
+    "11": {
+      "op": "bytecblock \"total_burned\" \"manager_address\" \"xnft_asset_id\""
+    },
+    "56": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "58": {
+      "op": "bz main_after_if_else@11",
+      "stack_out": []
+    },
+    "61": {
+      "op": "pushbytess 0xb8447b36 0xdf43f2f3 0x3762f6c8 0xf834c75c 0xee50d07c // method \"createApplication()void\", method \"bootstrap(uint64,pay)void\", method \"withdraw_tokens(pay,uint64,uint64)void\", method \"opt_in_to_asset(uint64,pay)void\", method \"burn_nft(asset,pay,axfer)void\"",
+      "defined_out": [
+        "Method(bootstrap(uint64,pay)void)",
+        "Method(burn_nft(asset,pay,axfer)void)",
+        "Method(createApplication()void)",
+        "Method(opt_in_to_asset(uint64,pay)void)",
+        "Method(withdraw_tokens(pay,uint64,uint64)void)"
+      ],
+      "stack_out": [
+        "Method(createApplication()void)",
+        "Method(bootstrap(uint64,pay)void)",
+        "Method(withdraw_tokens(pay,uint64,uint64)void)",
+        "Method(opt_in_to_asset(uint64,pay)void)",
+        "Method(burn_nft(asset,pay,axfer)void)"
+      ]
+    },
+    "88": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(bootstrap(uint64,pay)void)",
+        "Method(burn_nft(asset,pay,axfer)void)",
+        "Method(createApplication()void)",
+        "Method(opt_in_to_asset(uint64,pay)void)",
+        "Method(withdraw_tokens(pay,uint64,uint64)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(createApplication()void)",
+        "Method(bootstrap(uint64,pay)void)",
+        "Method(withdraw_tokens(pay,uint64,uint64)void)",
+        "Method(opt_in_to_asset(uint64,pay)void)",
+        "Method(burn_nft(asset,pay,axfer)void)",
+        "tmp%2#0"
+      ]
+    },
+    "91": {
+      "op": "match main_createApplication_route@3 main_bootstrap_route@4 main_withdraw_tokens_route@5 main_opt_in_to_asset_route@6 main_burn_nft_route@7",
+      "stack_out": []
+    },
+    "103": {
+      "block": "main_after_if_else@11",
+      "stack_in": [],
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "104": {
+      "op": "return",
+      "stack_out": []
+    },
+    "105": {
+      "block": "main_burn_nft_route@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%26#0"
+      ],
+      "stack_out": [
+        "tmp%26#0"
+      ]
+    },
+    "107": {
+      "op": "!",
+      "defined_out": [
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%27#0"
+      ]
+    },
+    "108": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "109": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%28#0"
+      ]
+    },
+    "111": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "112": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%0#0"
+      ]
+    },
+    "115": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%30#0"
+      ],
+      "stack_out": [
+        "tmp%30#0"
+      ]
+    },
+    "116": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0"
+      ]
+    },
+    "118": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%31#0",
+        "tmp%32#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "tmp%32#0"
+      ]
+    },
+    "120": {
+      "op": "pushint 2 // 2",
+      "defined_out": [
+        "2",
+        "tmp%31#0",
+        "tmp%32#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "tmp%32#0",
+        "2"
+      ]
+    },
+    "122": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0"
+      ]
+    },
+    "123": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_idx%3#0 (copy)",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%3#0 (copy)"
+      ]
+    },
+    "124": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_type%3#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_type%3#0"
+      ]
+    },
+    "126": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_type%3#0",
+        "pay",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_type%3#0",
+        "pay"
+      ]
+    },
+    "127": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_type_matches%3#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_type_matches%3#0"
+      ]
+    },
+    "128": {
+      "error": "transaction type is pay",
+      "op": "assert // transaction type is pay",
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0"
+      ]
+    },
+    "129": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "tmp%31#0",
+        "tmp%33#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "tmp%33#0"
+      ]
+    },
+    "131": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "gtxn_idx%3#0",
+        "tmp%31#0",
+        "tmp%33#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "tmp%33#0",
+        "1"
+      ]
+    },
+    "132": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0"
+      ]
+    },
+    "133": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_idx%4#0 (copy)",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_idx%4#0 (copy)"
+      ]
+    },
+    "134": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_type%4#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_type%4#0"
+      ]
+    },
+    "136": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_type%4#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_type%4#0",
+        "axfer"
+      ]
+    },
+    "137": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_type_matches%4#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0",
+        "gtxn_type_matches%4#0"
+      ]
+    },
+    "138": {
+      "error": "transaction type is axfer",
+      "op": "assert // transaction type is axfer",
+      "stack_out": [
+        "tmp%31#0",
+        "gtxn_idx%3#0",
+        "gtxn_idx%4#0"
+      ]
+    },
+    "139": {
+      "callsub": "smart_contracts/burn_app/burner.algo.ts::BurnApp.burn_nft",
+      "op": "callsub burn_nft",
+      "stack_out": []
+    },
+    "142": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "143": {
+      "op": "return",
+      "stack_out": []
+    },
+    "144": {
+      "block": "main_opt_in_to_asset_route@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "146": {
+      "op": "!",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "147": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "148": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%22#0"
+      ],
+      "stack_out": [
+        "tmp%22#0"
+      ]
+    },
+    "150": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "151": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%3#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%3#0"
+      ]
+    },
+    "154": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0"
+      ]
+    },
+    "155": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%24#0",
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "tmp%25#0"
+      ]
+    },
+    "157": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%24#0",
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "tmp%25#0",
+        "1"
+      ]
+    },
+    "158": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%2#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "gtxn_idx%2#0"
+      ]
+    },
+    "159": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%2#0",
+        "gtxn_idx%2#0 (copy)",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "gtxn_idx%2#0",
+        "gtxn_idx%2#0 (copy)"
+      ]
+    },
+    "160": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%2#0",
+        "gtxn_type%2#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "gtxn_idx%2#0",
+        "gtxn_type%2#0"
+      ]
+    },
+    "162": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "gtxn_idx%2#0",
+        "gtxn_type%2#0",
+        "pay",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "gtxn_idx%2#0",
+        "gtxn_type%2#0",
+        "pay"
+      ]
+    },
+    "163": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%2#0",
+        "gtxn_type_matches%2#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0",
+        "gtxn_idx%2#0",
+        "gtxn_type_matches%2#0"
+      ]
+    },
+    "164": {
+      "error": "transaction type is pay",
+      "op": "assert // transaction type is pay",
+      "stack_out": [
+        "tmp%24#0",
+        "gtxn_idx%2#0"
+      ]
+    },
+    "165": {
+      "callsub": "smart_contracts/burn_app/burner.algo.ts::BurnApp.opt_in_to_asset",
+      "op": "callsub opt_in_to_asset",
+      "stack_out": []
+    },
+    "168": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "169": {
+      "op": "return",
+      "stack_out": []
+    },
+    "170": {
+      "block": "main_withdraw_tokens_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "172": {
+      "op": "!",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "173": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "174": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "176": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "177": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "179": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0",
+        "1"
+      ]
+    },
+    "180": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%1#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0"
+      ]
+    },
+    "181": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "gtxn_idx%1#0 (copy)"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "gtxn_idx%1#0 (copy)"
+      ]
+    },
+    "182": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "gtxn_type%1#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "gtxn_type%1#0"
+      ]
+    },
+    "184": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "gtxn_type%1#0",
+        "pay"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "gtxn_type%1#0",
+        "pay"
+      ]
+    },
+    "185": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "gtxn_type_matches%1#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "gtxn_type_matches%1#0"
+      ]
+    },
+    "186": {
+      "error": "transaction type is pay",
+      "op": "assert // transaction type is pay",
+      "stack_out": [
+        "gtxn_idx%1#0"
+      ]
+    },
+    "187": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "reinterpret_bytes[8]%1#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "reinterpret_bytes[8]%1#0"
+      ]
+    },
+    "190": {
+      "op": "btoi",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "tmp%18#0"
+      ]
+    },
+    "191": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "reinterpret_bytes[8]%2#0",
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "tmp%18#0",
+        "reinterpret_bytes[8]%2#0"
+      ]
+    },
+    "194": {
+      "op": "btoi",
+      "defined_out": [
+        "gtxn_idx%1#0",
+        "tmp%18#0",
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%1#0",
+        "tmp%18#0",
+        "tmp%19#0"
+      ]
+    },
+    "195": {
+      "callsub": "smart_contracts/burn_app/burner.algo.ts::BurnApp.withdraw_tokens",
+      "op": "callsub withdraw_tokens",
+      "stack_out": []
+    },
+    "198": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "199": {
+      "op": "return",
+      "stack_out": []
+    },
+    "200": {
+      "block": "main_bootstrap_route@4",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "202": {
+      "op": "!",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "203": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "204": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "206": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "207": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "210": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "211": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%11#0",
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "tmp%12#0"
+      ]
+    },
+    "213": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%11#0",
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "tmp%12#0",
+        "1"
+      ]
+    },
+    "214": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "gtxn_idx%0#0"
+      ]
+    },
+    "215": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)"
+      ]
+    },
+    "216": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "218": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "pay",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "pay"
+      ]
+    },
+    "219": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "220": {
+      "error": "transaction type is pay",
+      "op": "assert // transaction type is pay",
+      "stack_out": [
+        "tmp%11#0",
+        "gtxn_idx%0#0"
+      ]
+    },
+    "221": {
+      "callsub": "smart_contracts/burn_app/burner.algo.ts::BurnApp.bootstrap",
+      "op": "callsub bootstrap",
+      "stack_out": []
+    },
+    "224": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "225": {
+      "op": "return",
+      "stack_out": []
+    },
+    "226": {
+      "block": "main_createApplication_route@3",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "228": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "229": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "230": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "232": {
+      "op": "!",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "233": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "234": {
+      "callsub": "smart_contracts/burn_app/burner.algo.ts::BurnApp.createApplication",
+      "op": "callsub createApplication"
+    },
+    "237": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "238": {
+      "op": "return",
+      "stack_out": []
+    },
+    "239": {
+      "subroutine": "smart_contracts/burn_app/burner.algo.ts::BurnApp.createApplication",
+      "params": {},
+      "block": "createApplication",
+      "stack_in": [],
+      "op": "bytec_1 // \"manager_address\"",
+      "defined_out": [
+        "\"manager_address\""
+      ],
+      "stack_out": [
+        "\"manager_address\""
+      ]
+    },
+    "240": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"manager_address\"",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "\"manager_address\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "242": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "243": {
+      "op": "bytec_0 // \"total_burned\"",
+      "defined_out": [
+        "\"total_burned\""
+      ],
+      "stack_out": [
+        "\"total_burned\""
+      ]
+    },
+    "244": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "\"total_burned\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"total_burned\"",
+        "0"
+      ]
+    },
+    "245": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "246": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "247": {
+      "subroutine": "smart_contracts/burn_app/burner.algo.ts::BurnApp.bootstrap",
+      "params": {
+        "xnft_asset_id#0": "uint64",
+        "mbrTxn#0": "uint64"
+      },
+      "block": "bootstrap",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "250": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "252": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "253": {
+      "op": "bytec_1 // \"manager_address\"",
+      "defined_out": [
+        "\"manager_address\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"manager_address\""
+      ]
+    },
+    "254": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "255": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "256": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "257": {
+      "error": "Only the manager can bootstrap the application",
+      "op": "assert // Only the manager can bootstrap the application",
+      "stack_out": []
+    },
+    "258": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "xnft_asset_id#0 (copy)"
+      ],
+      "stack_out": [
+        "xnft_asset_id#0 (copy)"
+      ]
+    },
+    "260": {
+      "error": "Invalid xnft asset ID",
+      "op": "assert // Invalid xnft asset ID",
+      "stack_out": []
+    },
+    "261": {
+      "op": "bytec_2 // \"xnft_asset_id\"",
+      "defined_out": [
+        "\"xnft_asset_id\""
+      ],
+      "stack_out": [
+        "\"xnft_asset_id\""
+      ]
+    },
+    "262": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "\"xnft_asset_id\"",
+        "xnft_asset_id#0 (copy)"
+      ]
+    },
+    "264": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "265": {
+      "op": "bytec_0 // \"total_burned\"",
+      "defined_out": [
+        "\"total_burned\""
+      ],
+      "stack_out": [
+        "\"total_burned\""
+      ]
+    },
+    "266": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "\"total_burned\"",
+        "0"
+      ]
+    },
+    "267": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "268": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "xnft_asset_id#0 (copy)"
+      ]
+    },
+    "270": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "mbrTxn#0 (copy)",
+        "xnft_asset_id#0 (copy)"
+      ],
+      "stack_out": [
+        "xnft_asset_id#0 (copy)",
+        "mbrTxn#0 (copy)"
+      ]
+    },
+    "272": {
+      "callsub": "smart_contracts/burn_app/burner.algo.ts::BurnApp.opt_in_to_asset",
+      "op": "callsub opt_in_to_asset",
+      "stack_out": []
+    },
+    "275": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "276": {
+      "subroutine": "smart_contracts/burn_app/burner.algo.ts::BurnApp.withdraw_tokens",
+      "params": {
+        "mbrTxn#0": "uint64",
+        "amount#0": "uint64",
+        "asset_id#0": "uint64"
+      },
+      "block": "withdraw_tokens",
+      "stack_in": [],
+      "op": "proto 3 0"
+    },
+    "279": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "amount#0 (copy)"
+      ],
+      "stack_out": [
+        "amount#0 (copy)"
+      ]
+    },
+    "281": {
+      "error": "Withdrawal amount must be greater than zero",
+      "op": "assert // Withdrawal amount must be greater than zero",
+      "stack_out": []
+    },
+    "282": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "284": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "0"
+      ]
+    },
+    "285": {
+      "op": "bytec_1 // \"manager_address\"",
+      "defined_out": [
+        "\"manager_address\"",
+        "0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "0",
+        "\"manager_address\""
+      ]
+    },
+    "286": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "287": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "288": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "289": {
+      "error": "Only the manager can withdraw funds",
+      "op": "assert // Only the manager can withdraw funds",
+      "stack_out": []
+    },
+    "290": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "mbrTxn#0 (copy)"
+      ],
+      "stack_out": [
+        "mbrTxn#0 (copy)"
+      ]
+    },
+    "292": {
+      "op": "gtxns Amount",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "294": {
+      "op": "intc_2 // 1000",
+      "defined_out": [
+        "1000",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "1000"
+      ]
+    },
+    "295": {
+      "op": ">=",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "296": {
+      "error": "Insufficient fee for fund withdrawal",
+      "op": "assert // Insufficient fee for fund withdrawal",
+      "stack_out": []
+    },
+    "297": {
+      "op": "itxn_begin"
+    },
+    "298": {
+      "op": "txn Sender",
+      "defined_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "300": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "asset_id#0 (copy)",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "asset_id#0 (copy)"
+      ]
+    },
+    "302": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "304": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "amount#0 (copy)"
+      ]
+    },
+    "306": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "308": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": []
+    },
+    "310": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4"
+      ],
+      "stack_out": [
+        "4"
+      ]
+    },
+    "311": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "313": {
+      "op": "intc_2 // 1000",
+      "stack_out": [
+        "1000"
+      ]
+    },
+    "314": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "316": {
+      "op": "itxn_submit"
+    },
+    "317": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "318": {
+      "subroutine": "smart_contracts/burn_app/burner.algo.ts::BurnApp.opt_in_to_asset",
+      "params": {
+        "asset#0": "uint64",
+        "mbrTxn#0": "uint64"
+      },
+      "block": "opt_in_to_asset",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "321": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "mbrTxn#0 (copy)"
+      ],
+      "stack_out": [
+        "mbrTxn#0 (copy)"
+      ]
+    },
+    "323": {
+      "op": "gtxns Amount",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "325": {
+      "op": "pushint 101000 // 101000",
+      "defined_out": [
+        "101000",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "101000"
+      ]
+    },
+    "329": {
+      "op": ">=",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "330": {
+      "error": "Insufficient fee for asset opt-in",
+      "op": "assert // Insufficient fee for asset opt-in",
+      "stack_out": []
+    },
+    "331": {
+      "op": "itxn_begin"
+    },
+    "332": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "334": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": []
+    },
+    "336": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "337": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": []
+    },
+    "339": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "asset#0 (copy)"
+      ],
+      "stack_out": [
+        "asset#0 (copy)"
+      ]
+    },
+    "341": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "343": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4"
+      ],
+      "stack_out": [
+        "4"
+      ]
+    },
+    "344": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "346": {
+      "op": "intc_2 // 1000",
+      "defined_out": [
+        "1000"
+      ],
+      "stack_out": [
+        "1000"
+      ]
+    },
+    "347": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "349": {
+      "op": "itxn_submit"
+    },
+    "350": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "351": {
+      "subroutine": "smart_contracts/burn_app/burner.algo.ts::BurnApp.burn_nft",
+      "params": {
+        "asset#0": "uint64",
+        "mbrTxn#0": "uint64",
+        "axfer#0": "uint64"
+      },
+      "block": "burn_nft",
+      "stack_in": [],
+      "op": "proto 3 0"
+    },
+    "354": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "axfer#0 (copy)"
+      ],
+      "stack_out": [
+        "axfer#0 (copy)"
+      ]
+    },
+    "356": {
+      "op": "gtxns AssetAmount",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "358": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1"
+      ]
+    },
+    "359": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "360": {
+      "error": "NFT must be burned with exactly 1 unit",
+      "op": "assert // NFT must be burned with exactly 1 unit",
+      "stack_out": []
+    },
+    "361": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "axfer#0 (copy)"
+      ]
+    },
+    "363": {
+      "op": "gtxns AssetReceiver",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "365": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "tmp%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "tmp%3#0"
+      ]
+    },
+    "367": {
+      "op": "==",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "368": {
+      "error": "NFT must be sent to the application address",
+      "op": "assert // NFT must be sent to the application address",
+      "stack_out": []
+    },
+    "369": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "mbrTxn#0 (copy)"
+      ],
+      "stack_out": [
+        "mbrTxn#0 (copy)"
+      ]
+    },
+    "371": {
+      "op": "gtxns Amount",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "373": {
+      "op": "intc_2 // 1000",
+      "defined_out": [
+        "1000",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "1000"
+      ]
+    },
+    "374": {
+      "op": ">=",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "375": {
+      "error": "Insufficient fee for NFT burn",
+      "op": "assert // Insufficient fee for NFT burn",
+      "stack_out": []
+    },
+    "376": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "378": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "asset#0 (copy)",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0",
+        "asset#0 (copy)"
+      ]
+    },
+    "380": {
+      "op": "asset_holding_get AssetBalance",
+      "defined_out": [
+        "check%0#0",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "value%0#0",
+        "check%0#0"
+      ]
+    },
+    "382": {
+      "error": "account opted into asset",
+      "op": "assert // account opted into asset",
+      "stack_out": [
+        "value%0#0"
+      ]
+    },
+    "383": {
+      "op": "intc 4 // 500000",
+      "defined_out": [
+        "500000",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "value%0#0",
+        "500000"
+      ]
+    },
+    "385": {
+      "op": ">=",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "386": {
+      "error": "Insufficient balance in xnft for burn payment",
+      "op": "assert // Insufficient balance in xnft for burn payment",
+      "stack_out": []
+    },
+    "387": {
+      "op": "itxn_begin"
+    },
+    "388": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "389": {
+      "op": "bytec_2 // \"xnft_asset_id\"",
+      "defined_out": [
+        "\"xnft_asset_id\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"xnft_asset_id\""
+      ]
+    },
+    "390": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "391": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "392": {
+      "op": "txn Sender",
+      "defined_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "394": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "396": {
+      "op": "intc 4 // 500000",
+      "stack_out": [
+        "maybe_value%0#0",
+        "500000"
+      ]
+    },
+    "398": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "400": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "402": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4"
+      ],
+      "stack_out": [
+        "4"
+      ]
+    },
+    "403": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "405": {
+      "op": "intc_2 // 1000",
+      "stack_out": [
+        "1000"
+      ]
+    },
+    "406": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "408": {
+      "op": "itxn_submit"
+    },
+    "409": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "410": {
+      "op": "bytec_0 // \"total_burned\"",
+      "defined_out": [
+        "\"total_burned\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"total_burned\""
+      ]
+    },
+    "411": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "412": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "413": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "maybe_value%1#0",
+        "1"
+      ]
+    },
+    "414": {
+      "op": "+",
+      "defined_out": [
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "new_state_value%0#0"
+      ]
+    },
+    "415": {
+      "op": "bytec_0 // \"total_burned\"",
+      "stack_out": [
+        "new_state_value%0#0",
+        "\"total_burned\""
+      ]
+    },
+    "416": {
+      "op": "swap",
+      "stack_out": [
+        "\"total_burned\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "417": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "418": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
