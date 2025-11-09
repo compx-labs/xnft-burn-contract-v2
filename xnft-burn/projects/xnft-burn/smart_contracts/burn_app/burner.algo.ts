@@ -1,32 +1,95 @@
-import { Account, assert, Asset, Contract, Global, GlobalState, gtxn, itxn, Txn, uint64 } from "@algorandfoundation/algorand-typescript";
-
-const ASSET_FEE:uint64 = 101_000; // 0.101 ALGO in microAlgos
-const BURN_FEE:uint64 = 1_000; // 0.002 ALGO in microAlgos
-const BURN_PAYMENT:uint64 = 500_000; // 0.5 ALGO in xnft
-const WITHDRAW_FEE:uint64 = 1_000; // 0.1 ALGO in xnf
+import {
+  Account,
+  assert,
+  assertMatch,
+  Asset,
+  BoxMap,
+  Contract,
+  Global,
+  GlobalState,
+  gtxn,
+  itxn,
+  Txn,
+  uint64,
+} from "@algorandfoundation/algorand-typescript";
+import { WITHDRAW_FEE, ASSET_FEE, BURN_FEE, BURN_PAYMENT, ASSET_MBR_FEE, CreatorInfo, BOOTSTRAP_FEE } from "./config.algo";
+import { abimethod, Address, UintN64 } from "@algorandfoundation/algorand-typescript/arc4";
 
 export class BurnApp extends Contract {
   manager_address = GlobalState<Account>();
   total_burned = GlobalState<uint64>();
   xnft_asset_id = GlobalState<uint64>();
 
+  num_creators = GlobalState<uint64>();
+
+  creators = BoxMap<Address, CreatorInfo>({ keyPrefix: "creator_" });
+
+  @abimethod({ allowActions: "NoOp", onCreate: "require" })
   createApplication() {
     this.manager_address.value = Txn.sender;
     this.total_burned.value = 0;
+    this.num_creators.value = 0;
   }
 
+  @abimethod({ allowActions: "NoOp" })
+  public addCreator(creatorAddress: Account, appId: uint64) {
+    assert(Txn.sender === this.manager_address.value, "Only the manager can add creators");
+    assert(creatorAddress !== Global.zeroAddress, "Invalid creator address");
+    assert(this.creators(new Address(creatorAddress)).exists === false, "Creator already exists");
+
+    const creator = new CreatorInfo({
+      shuffleAppId: new UintN64(appId),
+    });
+
+    this.creators(new Address(creatorAddress)).value = creator.copy();
+    this.num_creators.value = this.num_creators.value + 1;
+  }
+
+  @abimethod({ allowActions: "NoOp" })
+  public removeCreator(creatorAddress: Account) {
+    assert(Txn.sender === this.manager_address.value, "Only the manager can remove creators");
+    assert(this.creators(new Address(creatorAddress)).exists === true, "Creator does not exist");
+
+    this.creators(new Address(creatorAddress)).delete();
+    this.num_creators.value = this.num_creators.value - 1;
+  }
+
+  @abimethod({ allowActions: "NoOp" })
   bootstrap(xnft_asset_id: uint64, mbrTxn: gtxn.PaymentTxn) {
     assert(Txn.sender === this.manager_address.value, "Only the manager can bootstrap the application");
     assert(xnft_asset_id > 0, "Invalid xnft asset ID");
+
+    assertMatch(mbrTxn, {
+      amount: BOOTSTRAP_FEE,
+      sender: Txn.sender,
+      receiver: Global.currentApplicationAddress,
+    });
+
     this.xnft_asset_id.value = xnft_asset_id;
     this.total_burned.value = 0;
-    this.opt_in_to_asset(xnft_asset_id, mbrTxn);
+
+    itxn
+      .assetTransfer({
+        xferAsset: Asset(xnft_asset_id),
+        assetAmount: 0,
+        assetReceiver: Global.currentApplicationAddress,
+        fee: ASSET_MBR_FEE,
+      })
+      .submit();
   }
 
-  withdraw_tokens(mbrTxn: gtxn.PaymentTxn, amount: uint64, asset_id: uint64) {
+  @abimethod({ allowActions: "NoOp" })
+  public withdraw_tokens(mbrTxn: gtxn.PaymentTxn, amount: uint64, asset_id: uint64) {
     assert(amount > 0, "Withdrawal amount must be greater than zero");
     assert(Txn.sender === this.manager_address.value, "Only the manager can withdraw funds");
-    assert(mbrTxn.amount >= WITHDRAW_FEE, "Insufficient fee for fund withdrawal");
+    assert(asset_id === this.xnft_asset_id.value, "Can only withdraw xnft asset");
+
+    assertMatch(mbrTxn, {
+      amount: WITHDRAW_FEE,
+      sender: Txn.sender,
+      receiver: Global.currentApplicationAddress,
+    });
+
     itxn
       .assetTransfer({
         assetReceiver: Txn.sender,
@@ -37,8 +100,15 @@ export class BurnApp extends Contract {
       .submit();
   }
 
-  opt_in_to_asset(asset: uint64, mbrTxn: gtxn.PaymentTxn) {
-    assert(mbrTxn.amount >= ASSET_FEE, "Insufficient fee for asset opt-in");
+  @abimethod({ allowActions: "NoOp" })
+  opt_in_to_asset(asset: Asset, mbrTxn: gtxn.PaymentTxn) {
+    assert(this.creators(new Address(asset.creator)).exists === true, "NFT creator is not recognized");
+
+    assertMatch(mbrTxn, {
+      amount: ASSET_FEE,
+      sender: Txn.sender,
+      receiver: Global.currentApplicationAddress,
+    });
 
     itxn
       .assetTransfer({
@@ -50,11 +120,22 @@ export class BurnApp extends Contract {
       .submit();
   }
 
-  burn_nft(asset: Asset, mbrTxn: gtxn.PaymentTxn, axfer: gtxn.AssetTransferTxn) {
-    assert(axfer.assetAmount === 1, "NFT must be burned with exactly 1 unit");
-    assert(axfer.assetReceiver === Global.currentApplicationAddress, "NFT must be sent to the application address");
-    assert(mbrTxn.amount >= BURN_FEE, "Insufficient fee for NFT burn");
-    assert(asset.balance(Global.currentApplicationAddress) >= BURN_PAYMENT, "Insufficient balance in xnft for burn payment");
+  @abimethod({ allowActions: "NoOp" })
+  burn_nft(asset: Asset, mbrTxn: gtxn.PaymentTxn, axfer: gtxn.AssetTransferTxn, creator: Account) {
+    assert(this.creators(new Address(asset.creator)).exists === true, "NFT creator is not recognized");
+
+    assertMatch(axfer, {
+      xferAsset: Asset(this.xnft_asset_id.value),
+      assetAmount: 1,
+      assetReceiver: Global.currentApplicationAddress,
+      sender: Txn.sender,
+    });
+
+    assertMatch(mbrTxn, {
+      amount: BURN_FEE * 3,
+      sender: Txn.sender,
+      receiver: Global.currentApplicationAddress,
+    });
 
     itxn
       .assetTransfer({
@@ -65,6 +146,33 @@ export class BurnApp extends Contract {
       })
       .submit();
 
-      this.total_burned.value = this.total_burned.value + 1;
+    itxn
+      .assetTransfer({
+        xferAsset: asset.id,
+        assetAmount: 1,
+        assetReceiver: creator,
+        fee: BURN_FEE,
+      })
+      .submit();
+
+    itxn
+      .assetTransfer({
+        xferAsset: asset.id,
+        assetAmount: 0,
+        assetReceiver: Txn.sender,
+        assetCloseTo: creator,
+        fee: BURN_FEE,
+      })
+      .submit();
+
+    itxn
+      .payment({
+        amount: ASSET_MBR_FEE,
+        receiver: Txn.sender,
+        fee: BURN_FEE,
+      })
+      .submit();
+
+    this.total_burned.value = this.total_burned.value + 1;
   }
 }
