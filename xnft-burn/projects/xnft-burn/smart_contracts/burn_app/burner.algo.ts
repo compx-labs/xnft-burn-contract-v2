@@ -15,12 +15,15 @@ import {
 import { WITHDRAW_FEE, ASSET_FEE, BURN_FEE, BURN_PAYMENT, ASSET_MBR_FEE, CreatorInfo, BOOTSTRAP_FEE } from "./config.algo";
 import { abimethod, Address, UintN64 } from "@algorandfoundation/algorand-typescript/arc4";
 
+const CONTRACT_VERSION: uint64 = 3000;
+
 export class BurnApp extends Contract {
   manager_address = GlobalState<Account>();
   total_burned = GlobalState<uint64>();
   xnft_asset_id = GlobalState<uint64>();
 
   num_creators = GlobalState<uint64>();
+  contract_version = GlobalState<uint64>();
 
   creators = BoxMap<Address, CreatorInfo>({ keyPrefix: "creator_" });
 
@@ -29,6 +32,7 @@ export class BurnApp extends Contract {
     this.manager_address.value = Txn.sender;
     this.total_burned.value = 0;
     this.num_creators.value = 0;
+    this.contract_version.value = CONTRACT_VERSION;
   }
 
   @abimethod({ allowActions: "NoOp" })
